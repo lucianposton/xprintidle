@@ -9,7 +9,6 @@ AC_CONFIG_SRCDIR([xprintidle.c])
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
-
 # Checks for header files.
 AC_PATH_X
 if test "$no_x" = yes; then
@@ -18,9 +17,13 @@ fi
 AC_SUBST([x_includes])
 AC_SUBST([x_libraries])
 
+LIBS="$LIBS -lX11 -lXss -lXext"
+
 # Checks for libraries.
 user_LIBS=$LIBS
-LIBS="$LIBS -L$x_libraries"
+if test $x_libraries; then
+  LIBS="$LIBS -L$x_libraries"
+fi
 AC_CHECK_LIB([X11], [XOpenDisplay], , [AC_MSG_ERROR([libX11 not found])])
 AC_CHECK_LIB([Xss], [XScreenSaverQueryExtension], , [AC_MSG_ERROR([libXss not found])])
 LIBS=$user_LIBS

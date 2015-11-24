@@ -3536,7 +3536,6 @@ fi
 
 
 
-
 # Checks for header files.
 
 ac_ext=c
@@ -3876,9 +3875,13 @@ fi
 
 
 
+LIBS="$LIBS -lX11 -lXss -lXext"
+
 # Checks for libraries.
 user_LIBS=$LIBS
-LIBS="$LIBS -L$x_libraries"
+if test $x_libraries; then
+  LIBS="$LIBS -L$x_libraries"
+fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for XOpenDisplay in -lX11" >&5
 $as_echo_n "checking for XOpenDisplay in -lX11... " >&6; }
 if ${ac_cv_lib_X11_XOpenDisplay+:} false; then :

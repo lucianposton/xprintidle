@@ -104,7 +104,6 @@ PROGRAMS = $(bin_PROGRAMS)
 am_xprintidle_OBJECTS = xprintidle.$(OBJEXT)
 xprintidle_OBJECTS = $(am_xprintidle_OBJECTS)
 xprintidle_LDADD = $(LDADD)
-xprintidle_DEPENDENCIES =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -269,8 +268,6 @@ top_srcdir = @top_srcdir@
 x_includes = @x_includes@
 x_libraries = @x_libraries@
 xprintidle_SOURCES = xprintidle.c
-AM_CPPFLAGS = -I@x_includes@
-LDADD = -L@x_libraries@ -lX11 -lXss -lXext
 all: all-am
 
 .SUFFIXES:
